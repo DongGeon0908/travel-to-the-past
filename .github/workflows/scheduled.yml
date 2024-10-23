@@ -43,11 +43,11 @@ jobs:
           if [ -f past-history.txt ]; then
             last_date=$(tail -n 1 past-history.txt)
           else
-            last_date=$(date '+%Y-%m-%d') # 파일이 없으면 오늘 날짜로 초기화
+            last_date=$(date '+%a %b %d %T %Z %Y') # 파일이 없으면 현재 시간으로 초기화
           fi
           
           # 날짜에서 1일 빼기
-          new_date=$(date -d "$last_date -1 day" '+%Y-%m-%d')
+          new_date=$(date -d "$last_date -1 day" '+%a %b %d %T %Z %Y')
           
           # 새로운 날짜를 파일에 기록
           echo $new_date >> past-history.txt
