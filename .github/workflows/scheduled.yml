@@ -38,7 +38,7 @@ jobs:
           cd github-action
           git config --global user.email "wrjssmjdhappy@gmail.com"
           git config --global user.name "극락코딩"
-          date >> auto-commit.txt
+          date >> past-history.txt
           git add .
           git commit -m "auto commit with github-action (by 극락코딩)"
           git push origin main
