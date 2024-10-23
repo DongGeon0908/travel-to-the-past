@@ -1,0 +1,48 @@
+# ===================================================================
+# Default GitHub Scheduler Setup
+# ===================================================================
+
+name: Scheduled Jobs
+
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#schedule
+# github scheduler not supported seconds cron feature
+on:
+  schedule:
+    # https://crontab.guru
+    - cron: '0 */6 * * *'
+
+# Job Tasks
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      # Echo
+      - name: echo job
+        run: echo "Welcome to 극락코딩"
+
+      # Start Job
+      - name: start Job
+        run: date
+
+      # Checkout
+      - name: repository checkout
+        uses: actions/checkout@v2
+        with:
+          repository: DongGeon0908/github-action
+          token: ${{ secrets.GOOFY_GITHUB_TOKEN }}
+          path: github-action
+
+      # git add and push
+      - name: Add date and push
+        run: |
+          cd github-action
+          git config --global user.email "wrjssmjdhappy@gmail.com"
+          git config --global user.name "극락코딩"
+          date >> auto-commit.txt
+          git add .
+          git commit -m "auto commit with github-action (by 극락코딩)"
+          git push origin main
+
+      # End Job
+      - name: end Job
+        run: date
