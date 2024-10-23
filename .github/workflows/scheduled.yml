@@ -30,7 +30,7 @@ jobs:
       - name: repository checkout
         uses: actions/checkout@v2
         with:
-          repository: DongGeon0908/github-action
+          repository: DongGeon0908/travel-to-the-past
           token: ${{ secrets.GOOFY_GITHUB_TOKEN }}
           path: github-action
 
