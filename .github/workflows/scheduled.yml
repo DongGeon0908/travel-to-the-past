@@ -49,14 +49,15 @@ jobs:
           
           # 새로운 날짜를 파일에 기록
           echo $new_date >> past-history.txt
+          echo $new_date >> README.md
           
           # git 설정
           git config --global user.email "wrjssmjdhappy@gmail.com"
           git config --global user.name "극락코딩"
           
           # GIT_COMMITTER_DATE와 GIT_AUTHOR_DATE를 설정하여 커밋 날짜 변경
-          GIT_COMMITTER_DATE="$new_date" GIT_AUTHOR_DATE="$new_date" git add past-history.txt
-          GIT_COMMITTER_DATE="$new_date" GIT_AUTHOR_DATE="$new_date" git commit -m "auto commit with date $new_date (by 극락코딩)"
+          GIT_COMMITTER_DATE="$new_date" GIT_AUTHOR_DATE="$new_date" git add .
+          GIT_COMMITTER_DATE="$new_date" GIT_AUTHOR_DATE="$new_date" git commit -m "과거로 시간 여행 $new_date (by 극락코딩)"
           git push origin main
 
 
