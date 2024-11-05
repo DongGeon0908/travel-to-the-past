@@ -49,7 +49,7 @@ jobs:
           
           # 새로운 날짜를 파일에 기록
           echo $new_date >> past-history.txt
-          echo $new_date >> README.md
+          echo "- $new_date" >> README.md
           
           # git 설정
           git config --global user.email "wrjssmjdhappy@gmail.com"
