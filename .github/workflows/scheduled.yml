@@ -9,7 +9,7 @@ name: Scheduled Jobs
 on:
   schedule:
     # https://crontab.guru
-    - cron: '0 */6 * * *'
+    - cron: '0 */1 * * *'
     
 # Job Tasks
 jobs:
